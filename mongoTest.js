@@ -1,14 +1,15 @@
-var http = require('http'),
-    httpProxy = require('http-proxy');
+var express = require('express');
 
+var app = express.createServer(express.logger());
 
-var server = httpProxy.createServer(function (req, res, proxy) {
-  req.headers.host = 'myapp.heroku.com';
-  proxy.proxyRequest(req, res, {
-    port: 80,
-    host: 'blazing-window-6539.herokuapp.com'
-  });
-}).listen(9000);
+app.get('/', function(request, response) {
+  response.send('Hello World it is jango!!');
+});
+
+var port = process.env.PORT || 3000;
+app.listen(port, function() {
+  console.log("Listening on " + port);
+});
 
 /*var sys = require('util');
 var http = require('http');
