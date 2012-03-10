@@ -1,11 +1,23 @@
-var sys = require('util');
+var http = require('http'),
+    httpProxy = require('http-proxy');
+
+
+var server = httpProxy.createServer(function (req, res, proxy) {
+  req.headers.host = 'myapp.heroku.com';
+  proxy.proxyRequest(req, res, {
+    port: 80,
+    host: 'blazing-window-6539.herokuapp.com'
+  });
+}).listen(9000);
+
+/*var sys = require('util');
 var http = require('http');
 var express = require('express');
-//var mongo = require('mongodb');
-//var Step = require('step');
+var mongo = require('mongodb');
+var Step = require('step');
 
 var app = require('express').createServer();
-/*
+
 //Pre requiests on mongo db:
 // db.foo.insert({id:11,user_name:"moshe"});
 
@@ -19,7 +31,7 @@ var Db = require('mongodb').Db,
 
 var db = new Db('test', 
 	  new Server("127.0.0.1", 27017, {auto_reconnect: false}), {});
-   */
+   
 function setName(){
 
 
@@ -46,10 +58,11 @@ db.close();
 
 
 app.get('/', function(req, res){
-	//setName();	
-	res.send('hello world' + ' winner is:' + "Jango");
+	setName();	
+	res.send('hello world' + ' winner is:' + first_name);
 });
 
 
 
-app.listen(3000);
+app.listen(8000);
+*/
