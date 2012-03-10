@@ -1,6 +1,10 @@
 {
     "name": "mongoTest"
    ,"version": "0.0.1"
+   , "engines": {
+    "node": ">=0.4.7 <0.7.0",
+    "npm": ">=1.0.0"
+  } 
     , "dependencies": {
       "express": "2.4.3"
     , "stylus": ">= 0.0.1"
