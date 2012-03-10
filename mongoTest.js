@@ -5,7 +5,7 @@ var mongo = require('mongodb');
 var Step = require('step');
 
 var app = require('express').createServer();
-
+/*
 //Pre requiests on mongo db:
 // db.foo.insert({id:11,user_name:"moshe"});
 
@@ -19,7 +19,7 @@ var Db = require('mongodb').Db,
 
 var db = new Db('test', 
 	  new Server("127.0.0.1", 27017, {auto_reconnect: false}), {});
-   
+   */
 function setName(){
 
 
@@ -46,8 +46,8 @@ db.close();
 
 
 app.get('/', function(req, res){
-	setName();	
-	res.send('hello world' + ' winner is:' + first_name);
+	//setName();	
+	res.send('hello world' + ' winner is:' + "Jango");
 });
 
 
